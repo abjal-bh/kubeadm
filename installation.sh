@@ -1,4 +1,4 @@
-# required two input values $1 $2
+# required three input values $1 $2 $3
 yum install docker -y
 systemctl enable docker 
 systemctl start docker 
@@ -17,6 +17,7 @@ systemctl start kubelet
 hostnamectl set-hostname master-node
 echo $1 >> /etc/hosts
 echo $2 >> /etc/hosts
+echo $3 >> /etc/hosts
 # hostnamectl set-hostname slave-1
 # hostnamectl set-hostname slave-2
 setenforce 0
