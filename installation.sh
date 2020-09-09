@@ -18,16 +18,16 @@ hostnamectl set-hostname master-node
 echo $1 >> /etc/hosts
 echo $2 >> /etc/hosts
 echo $3 >> /etc/hosts
-# hostnamectl set-hostname slave-1
-# hostnamectl set-hostname slave-2
+#hostnamectl set-hostname slave-1
+#hostnamectl set-hostname slave-2
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 sed -i '/swap/d' /etc/fstab
 swapoff -a
 ############## till above can be used for slave node ############
 kubeadm init --pod-network-cidr=10.244.0.0/16
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
