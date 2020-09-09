@@ -18,8 +18,8 @@ hostnamectl set-hostname master-node
 echo $1 >> /etc/hosts
 echo $2 >> /etc/hosts
 echo $3 >> /etc/hosts
-#hostnamectl set-hostname slave-1
-#hostnamectl set-hostname slave-2
+#hostnamectl set-hostname slave1
+#hostnamectl set-hostname slave2
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 sed -i '/swap/d' /etc/fstab
