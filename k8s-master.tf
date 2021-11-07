@@ -11,11 +11,11 @@ provider "aws" {
   region     = "us-east-2"
 }
 resource "aws_instance" "k8s-master" {
-  ami           = "ami-0603cbe34fd08cb81"
+  ami           = "ami-01cc34ab2709337aa"
   instance_type = "t2.medium"
   key_name = "abs"
-  subnet_id = "subnet-1a944371"
-  security_groups = ["sg-001470d7a4e8d6f21"]
+  subnet_id = "subnet-5094a31c"
+  security_groups = ["sg-c58eeb8f"]
   tags = {
     Name = "k8s-master"
 }
